@@ -1,0 +1,472 @@
+/* Genel Sayfa Ayarları - Siyah/Beyaz Tema */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fcfcfc;
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+
+/* Üst Menü (Navbar) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+}
+
+.brand {
+  font-family: "Brush Script MT", "Segoe Script", "Bradley Hand", cursive;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+  letter-spacing: -0.5px;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.2s ease;
+  background: none;
+  border: none;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+/* Klavye ile gezinenler için görünür odak halkası */
+.icon:focus-visible,
+.btn-primary:focus-visible,
+.input-field:focus-visible,
+.create-post-trigger:focus-visible,
+.icon-btn:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* Uygulama Konteyneri */
+.app-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 80px 15px 90px 15px;
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 75px 10px 85px 10px;
+  }
+  .card {
+    padding: 15px;
+  }
+}
+
+/* Hikayeler (Stories) Alanı */
+.stories-container {
+  display: flex;
+  gap: 15px;
+  padding: 15px 10px;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  scrollbar-width: none;
+}
+.stories-container::-webkit-scrollbar {
+  display: none;
+}
+
+.story-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  border: 2px solid #000;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #666;
+}
+
+/* Kart Tasarımı */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #f0f0f0;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden; /* Taşmaları kartın köşesinden kırpar */
+}
+
+.card:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* İskelet Kart (Skeleton Loading) */
+.skeleton-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #f0f0f0;
+}
+
+.skeleton-line {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e6e6e6 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: 6px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+/* Form Alanları */
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 6px;
+  background-color: #fafafa;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #000;
+  background-color: #fff;
+}
+
+.char-counter {
+  text-align: right;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.char-counter.limit-near {
+  color: #d33;
+}
+
+.file-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Butonlar */
+.btn-primary {
+  width: 100%;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Gönderi (Post) Özel Tasarımları */
+.post-header {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.post-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-right: 12px;
+}
+
+/* DÜZELTİLDİ: Konteynır artık resmin dış çerçevesini yönetiyor. 
+   Kartın 20px padding'ini aşıp tam kenardan kenara yapışması için margin-left/right eklendi. */
+.post-image-container {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-right: -20px;
+  aspect-ratio: 1 / 1;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* DÜZELTİLDİ: ESKİ ÇAKIŞAN KURALLAR TEMİZLENDİ! Sadece contain ve ortalama aktif. */
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.post-caption {
+  font-size: 14px;
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.error-text {
+  color: #fff;
+  background-color: #000;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.success-banner {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  text-align: center;
+  border: 1px solid #c3e6cb;
+  font-size: 14px;
+}
+
+/* Resim Önizleme Konteyneri */
+.image-preview-container {
+  position: relative;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.remove-preview-btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-preview-btn:hover {
+  background-color: #000;
+}
+
+/* --- YENİ GÖNDERİ TETİKLEYİCİ BUTONU --- */
+.create-post-trigger {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  border: none;
+  border-top: 2px solid #000;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+}
+
+.create-post-trigger:hover {
+  background-color: #f8f8f8;
+}
+
+.create-post-trigger.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.plus-icon {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.plus-icon::before,
+.plus-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #000;
+  border-radius: 2px;
+}
+
+.plus-icon::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.plus-icon::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* --- ALTTAN AÇILAN YORUM PANELİ (MODAL) --- */
+.comment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+}
+
+.comment-modal-content {
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  height: 60vh;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.25s ease-out;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.comment-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-bottom: 1px solid #dbdbdb;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.comment-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.comment-item {
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.comment-modal-footer {
+  display: flex;
+  padding: 10px 16px;
+  border-top: 1px solid #dbdbdb;
+  background: #fff;
+}
+
+.comment-modal-footer input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 8px 0;
+}
+
+.comment-modal-footer button {
+  background: none;
+  border: none;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment-modal-footer button:disabled {
+  color: #b3dffc;
+  cursor: default;
+}

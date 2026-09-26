@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-easy-crop": "^6.2.3",
+    "react-router-dom": "^7.18.1"
+  }
+}
